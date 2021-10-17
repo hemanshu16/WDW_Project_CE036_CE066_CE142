@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxsh - video conferencing</title>
+  <link rel="stylesheet" href="header-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</style>
+</head>
+<body>
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="nav-list">
+                    <div class="brand"></div>
+                    <div class="hamburger"><div class="bar"></div></div>
+                    <ul>
+                        <li><a href="index.html" data-after="home">home</a></li>
+                        <li><a href="aboutus.html" data-after="About Us">About Us</a></li>
+                        <li><a href="#" data-after="Feedback">Feedback</a></li>
+                        <li><a href="login.html" data-after="Login / Signup">Login / signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            const hamburger=document.querySelector('.header .nav-bar .nav-list .hamburger');
+       const mobile_menu=document.querySelector('.header .nav-bar .nav-list ul');
+       const header=document.querySelector('.header .container');
+       
+       hamburger.addEventListener('click',()=>{
+           hamburger.classList.toggle('active');
+           mobile_menu.classList.toggle('active');
+       });
+       
+       </script>
+    </section>
+    <section id="second">
+        <div class="entercode left">
+            <h1>Secure Video Conferencing For You</h1>
+            <strong style="font-size: 22px; color:black">Join, collaborate and share Your Idea with The World.</strong>
+            <div class="centered">
+            </div><br><br>
+            <label style="color:black; text-shadow: 2px 1px orangered;">Enter Your meeting code</label><br><br>
+        <form action="next.php" method="php" id="form1"></form>
+        <div class="input-container">
+            <i class="fa fa-user icon" style="border-radius: 10px;"></i>
+            <input class="input-field" type="text" name="code" placeholder="Meeting Code" name="code">
+         </div>
+         <button type="submit" >Join Meeting</button>
+        </form>
+         <br><br><h4>OR</h4>
+         <form  action="/room" method="POST">
+             <input type="text" name="index" id="name">
+         <button type="submit">Create New Meeting </button>
+        </form>
+       
+        </div>
+        <div class="entercode right" id="right_part" >
+        <u><h2 style="text-shadow: 2px 1px aqua;"> WELCOME TO YOUR MEETINGS</h2></u><br><br>
+        <marquee><h3 style="font-family:Georgia, 'Times New Roman', Times, serif; text-shadow: 1px 1px yellow;">!! Glad To See You here !!</h3></marquee>
+        <video width="320" muted controls autoplay>
+            <source src="img/video4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
+        </div>
+    </section>
+</body>
+</html>
+ 
