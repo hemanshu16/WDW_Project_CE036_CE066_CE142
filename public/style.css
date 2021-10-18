@@ -16,14 +16,14 @@ body {
   width: 100%;
   align-items: center;
   flex-wrap: wrap;
-  overflow-y: auto;
+
 }
 video {
   display: block;
-  flex: 1;
+ 
   object-fit: cover;
   border: 5px solid #000;
-  max-width: 600px;
+  
 }
 .main {
   height: 100%;
@@ -33,6 +33,7 @@ video {
   flex: 0.8;
   display: flex;
   flex-direction: column;
+  
 }
 .main__right {
   flex: 0.2;
@@ -47,6 +48,7 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
 }
 .main__controls {
   display: flex;

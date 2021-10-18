@@ -6,6 +6,7 @@ const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
 const leave_meeting = document.getElementById("leave-meeting");
 let my_id ;
+let my_name = prompt("Enter Your Name");
 myVideo.muted = true;
 
 var peer = new Peer(undefined, {
@@ -45,7 +46,8 @@ navigator.mediaDevices
 
     document.addEventListener("keydown", (e) => {
       if (e.which === 13 && chatInputBox.value != "") {
-        socket.emit("message", chatInputBox.value);
+        let msg =  my_name +" : <br>"+ chatInputBox.value;
+        socket.emit("message", msg);
         chatInputBox.value = "";
       }
     });
@@ -121,13 +123,13 @@ const addVideoStream = (videoEl, stream) => {
   });
 
   videoGrid.append(videoEl);
- /* let totalUsers = document.getElementsByTagName("video").length;
-  if (totalUsers > 1) {
+ let totalUsers = document.getElementsByTagName("video").length;
+  if (totalUsers >= 2) {
     for (let index = 0; index < totalUsers; index++) {
-      document.getElementsByTagName("video")[index].style.width =
-        100 / totalUsers + "%";
+      document.getElementsByTagName("video")[index].style.width =330+ "px";
+      document.getElementsByTagName("video")[index].style.height =250+ "px";     
     }
-  }*/
+  }
 };
 
 const playStop = () => {
