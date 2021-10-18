@@ -65,7 +65,7 @@ navigator.mediaDevices
 
 leave_meeting.addEventListener('click',function(){
     socket.emit("leave-meeting" , my_id);
-    location.replace("https://www.google.com");
+    location.replace("https://foxsh-video-conferencing-app.herokuapp.com/");
 }); 
 
 socket.on("remove-stream", (msg) => {
