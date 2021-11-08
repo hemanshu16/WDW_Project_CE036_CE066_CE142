@@ -39,7 +39,7 @@ const client = new Client({
 });
 
 client.connect();
-create table scientist (id integer, firstname varchar(100), lastname varchar(100));
+//create table scientist (id integer, firstname varchar(100), lastname varchar(100));
 client.query('select * from username;', (err, res) => {
   if (err) throw err;
   console.log("Process Done");
