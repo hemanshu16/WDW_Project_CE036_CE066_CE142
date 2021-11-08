@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
+const connectionString = 'postgres://mqlwciovxxeoaq:e9f5def919eef0d452cd64abba6b9cacae8ff7ceaf8512f8f3ba012ec0cfb144@ec2-54-226-56-198.compute-1.amazonaws.com:5432/damrrr50oj5i6o';
+
 const { v4: uuidv4 } = require("uuid");
 const io = require("socket.io")(server);
 //const bodyParser = require("body-parser");
@@ -25,6 +27,34 @@ app.get("/", (req, rsp) => {
  rsp.redirect(`/${uuidv4()}`);
 }); 
 */
+var mess = "hello";
+
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+client.connect();
+//create table scientist (id integer, firstname varchar(100), lastname varchar(100));
+client.query('select * from username;', (err, res) => {
+  if (err) throw err;
+  console.log("Process Done");
+  for (let row of res.rows) {
+      console.log(row.name);
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+  console.log(mess);
+app.get("/", (req, rsp) => {
+    
+    rsp.send(mess);
+ });
+
 app.get("/", (req, rsp) => {
     rsp.render("index");
  });
