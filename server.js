@@ -93,7 +93,7 @@ app.post("/login", (req, rsp) => {
       email : res.rows[0].email,
       image : res.rows[0].image_name,
     }); 
-   }
+  }
    else{
     rsp.json({
       status : "false",
