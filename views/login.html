@@ -76,7 +76,9 @@
           #navbarNavAltMarkup :hover{
              color:yellow;
          }
-        
+        p{
+          margin-bottom: 2px;
+        }
      </style>
      
 </head>
@@ -101,7 +103,7 @@
     <div class="loginsection">   
     <div class="flogin">
         <h2 style="text-align: center;">Login</h2>
-    <form method="POST">
+    
         <div class="form-row align-items-center">
           <div class="col-sm-12 my-1">
             <label  for="username">Username</label>
@@ -111,7 +113,7 @@
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                 </svg></i></div>
               </div>
-              <input type="text" class="form-control " id="username" placeholder="Username">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username">
             </div>
           </div>
           </div>
@@ -124,19 +126,19 @@
                     <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
                   </svg></i></div>
                 </div>
-                <input type="text" class="form-control" id="password" placeholder="Password">
+                <input type="text" class="form-control" name="password" id="password" placeholder="Password">
               </div>
             </div>
           <div class="col-auto my-1 " style="text-align: center;padding-top:27px ;  ">
-            <button type="submit" class="btn">Login</button> </form>
+            <button  id="loginbutton" class="btn">Login</button> 
             <button type="button" class="btn" id="buttonforregistration">Registration</button>
           </div>
         </div>
-     
+           
       </div>
       <div class="fregister">
         <h2 style="text-align: center;">Registration</h2>
-    <form method="POST">
+    <form method="POST" action="http://localhost:3030/Registration" enctype="multipart/form-data">
         <div class="form-row align-items-center gy-">
           <div class="col-sm-12 my-1">
             <label  for="username">Username</label>
@@ -146,7 +148,7 @@
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                 </svg></i></div>
               </div>
-              <input type="text" class="form-control " id="username" placeholder="Username">
+              <input type="text" class="form-control " name="rusername" id="rusername" placeholder="Username">
             </div>
           </div>
           </div>
@@ -159,7 +161,7 @@
                     <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
                   </svg></i></div>
                 </div>
-                <input type="text" class="form-control" id="password" placeholder="Password">
+                <input type="password" class="form-control" name="rpassword" id="rpassword" placeholder="Password">
               </div>
             </div>
             </div>
@@ -172,7 +174,7 @@
                     <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
                   </svg></i></div>
                 </div>
-                <input type="text" class="form-control" id="confirmpassword" placeholder="ConFirm-Password">
+                <input type="password" class="form-control" name="cpassword" id="confirmpassword" placeholder="ConFirm-Password">
               </div>
             </div>
             </div>
@@ -187,20 +189,21 @@
                         </svg>
                       </i></div>
                     </div>
-                    <input type="email" class="form-control" id="emil-id" placeholder="Email-Address">
+                    <input type="email" class="form-control" name="email" id="emailid" placeholder="Email-Address">
                   </div>
                 </div>
                 </div>
             <div class="form-row align-items-center">
                 <div class="col-sm-12 my-1">
-                  <label  for="age">Age</label>
+                  <label  for="image">Your Image</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="bi bi-person"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                       </svg></i></div>
                     </div>
-                    <input type="number" class="form-control" max="100" min="10" id="age" placeholder="Age">
+                    <label style="margin:5px;" for="image" id="imagelabel">Select Your Profile Image</label>
+                    <input  type="file" class="form-control" name="file" style="visibility:hidden;" max="100" min="10" id="image"  >
                   </div>
              </div>     
                 
@@ -214,10 +217,195 @@
       </div>
     </div> 
     </section>
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
+      <div class="toast" id="mytoast" style="position: absolute; margin:auto; top:0; width:fit-content; text-align: center; z-index: 10;" autohide: false>
+        <div class="toast-header" style="text-align: left;">
+          
+          <div id="errorname" style="margin-right: 5px;"></div> 
+         <!-- <button type="button" id="close" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" style="background-color: white;">
+            <span aria-hidden="true" style="background-color:white;" >&times;</span>
+          </button>-->
+        </div>
+       
+      </div>
+    </div>
+   
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
     <script>
       $(document).ready(function(){
+        let valid_username = false , valid_password = false;
+          $('#mytoast').toast({
+          delay: 20000
+          })
+          $("#username").blur(function(){
+              let name = $(this).val();
+              name = name.trim();
+              $(this).val(name);
+              let format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+              if(name == "" || format.test(name) || name.length <6 )
+              { valid_username = false;
+                $("#errorname").text("Please Enter Valid Name");
+                $(this).css("border", "2px solid red");
+                $('.toast').toast('show');
+              }
+              else{
+                valid_username = true;
+                $(this).css("border", "2px solid green");
+                $('.toast').toast('hide');
+              }
+               
+          });
+          $("#password").blur(function(){
+             let  password = $(this).val();
+             password = password.trim();
+             $(this).val(password);
+             if( password == "" || (! /[A-Z]/.test(password)) || (! /[a-z]/.test(password)) || (! /[0-9]/.test(password)) || (! /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(password)) ||password.length < 8)
+             { valid_password = false;
+              $("#errorname").text("Please Enter Valid Password");
+                $(this).css("border", "2px solid red");
+                $('.toast').toast('show');
+              }
+              else{
+                valid_password = true;
+                $(this).css("border", "2px solid green");
+                $('.toast').toast('hide');
+              }
+          });
+        let username  = false;
+         $("#rusername").blur(function(){
+             var name =  $(this).val();
+             name = name.trim();
+             var error = "";
+             var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+             if( name == "" )
+             {
+               error = "Username should not be empty";
+             }
+             else if(format.test(name))
+             {
+               error = "Username Does Not Contain any Special Characters";
+             }
+             else if(name.length < 6)
+             {
+               error = "Username should contain atleast 6 characters";
+             }
+             else{
+              $(this).css("border", "2px solid green");
+              username = true;
+             }
+             $("#errorname").text(error) ;
+             if(error != "")
+             {  $(this).css("border", "2px solid red");
+
+             $('.toast').toast('show');
+              
+              }
+            $(this).val(name);
+              
+         });
+         $("#rpassword").focus(function(){
+          if(username){
+          $("#errorname").append("<p> Password shoul contain atleast one </p> <p> uppercase letter [A-Z] </p> <p>lowercase letter [a-z]</p> <p>digits [0-9] </p> <p> special character !,@,#,$,%...</p> <p>length should be 8 or more than 8") ;
+           
+            $('.toast').toast('show');
+              }     
+         });
+         $("#rpassword").blur(function(){
+          $('.toast').toast('hide');
+          
+             var password =  $(this).val();
+             password = password.trim();
+             var error = "";
+             if( password == "" )
+             {
+               error = "Password should not be empty" ;
+             }
+           else  if(! /[A-Z]/.test(password))
+             {
+               error = "Password should contain atleast one uppercase letter" ;
+             }
+            else if(! /[a-z]/.test(password))
+              { 
+                error = "Password should contain atleast one lowercase letter" ;
+              }
+            else  if(! /[1-9]/.test(password))
+              {
+                error =  "Password should contain atleast one digit\n" ;
+              }
+            else if(! /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(password))
+            {
+              error =  "Password should contain atleast one special character\n" ;
+            }
+            else  if(password.length < 8)
+              {
+                error = "Password should contain atleast eight characters" ;
+              } 
+             else{
+               if($("#confirmpassword").val() != "")
+               {
+                 if($("#confirmpassword").val() == password)
+                 { $('.toast').toast('hide');
+                  $(this).css("border", "2px solid green");
+               username = false;
+                 }
+                 else{
+                  $("#confirmpassword").css("border", "2px solid red");
+                error = "Password and Confirm Password is not same";
+                
+                 }
+               }
+               $('.toast').toast('hide');
+              $(this).css("border", "2px solid green");
+               username = false;
+             }
+             $("#errorname").text(error) ;
+             if(error != "")
+             {  $(this).css("border", "2px solid red");
+
+             $('.toast').toast('show');
+               
+              }
+            $(this).val(password);
+              
+         });
+
+         $("#confirmpassword").blur(function(){
+               if($("#rpassword").val() == $(this).val())
+               {$('.toast').toast('hide');
+                $(this).css("border", "2px solid green");
+               }
+               else{
+                $(this).css("border", "2px solid red");
+                $("#errorname").text("Password and Confirm Password is not same");
+                $('.toast').toast('show');
+                
+               }
+         });
+         
+         $("#emailid").blur(function(){
+            let format = /^([a-zA-Z0-9]+)@([a-z]+)\.([a-z]+)/ ; 
+            let email = $(this).val();
+            email  = email.trim();
+            $(this).val(email);
+             if(format.test($(this).val()))
+             { $('.toast').toast('hide');
+               $(this).css("border","2px solid green");
+             }
+             else{
+              $(this).css("border","2px solid red");
+              $("#errorname").text("Please Enter Valid Email Address");
+                $('.toast').toast('show');
+             }
+         });
+
+          $("#image").change(function(){
+           let image = document.getElementById("image");
+          
+          $("#imagelabel").text(image.files.item(0).name);
+           
+         });
          $("#buttonforregistration").click(function(){
             $(".flogin").css("left","-195%");  
             $(".loginsection").animate({height:"520px"},"fast");
@@ -229,8 +417,45 @@
             $(".fregister").css("left","105%");
             $(".loginsection").animate({height:"315px"},"fast"); 
          });
-        });
-    </script>
+        
+   
+      $("#loginbutton").click(   async function validate (event){
+         
+        if(valid_username && valid_password)
+         {
+          let data = { username : $("#username").val() , password : $("#password").val()};
+           let resp = await fetch('http://localhost:3030/login', {
+                    method: 'POST', 
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                     });
+               let ans = await resp.json();
+               if(ans.status == "false")
+               {
+                 $("#errorname").text("Please Enter Valid Username And Password");
+                  $('.toast').toast('show');
+               }
+               else{
+                sessionStorage.setItem('username',$("#username").val() );
+                sessionStorage.setItem('email', ans.email);  
+                sessionStorage.setItem('image', ans.image);  
+                console.log(ans.email);
+                console.log(ans.image);
+                 window.location = 'profile.html';
+               }    
+         }
+         else{
+          $("#errorname").text("Please Enter Valid Username And Password");
+                  $('.toast').toast('show');
+         }
+           
+           });
+
+          });
+      
+   </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     
 </html>
