@@ -424,7 +424,7 @@
         if(valid_username && valid_password)
          {
           let data = { username : $("#username").val() , password : $("#password").val()};
-           let resp = await fetch('http://localhost:3030/login', {
+           let resp = await fetch('https://foxsh-video-conferencing-app.herokuapp.com/', {
                     method: 'POST', 
                     headers: {
                       'Content-Type': 'application/json',
