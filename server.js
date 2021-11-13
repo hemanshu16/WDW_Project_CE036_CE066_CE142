@@ -68,7 +68,7 @@ io.on("connection", (socket) => {
 });
 
 
-let route_path = process.cwd() 
+let route_path = process.cwd();
 
 app.post("/login", (req, rsp) => {
      
@@ -121,11 +121,10 @@ client.query("insert into user_data values( '" + req.body.rusername +"','"+req.b
 });
   }
    //rsp.sendFile(route_path + "login.html");
-   rsp.send(route_path + "login.html");
+   rsp.sendFile(route_path + "/foxsh-video-conferencing-app/views/login.html");
 });
 
-
 });
-
+console.log(route_path);
 
 server.listen(process.env.PORT || 3030);
