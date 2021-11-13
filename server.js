@@ -111,7 +111,7 @@ let tempfile = req.files.file;
 let uploadpath = route_path +"\\views\\images\\" + tempfile.name; 
 console.log(tempfile.type);
 tempfile.mv(uploadpath, function(err){
-        if(err) {  rsp.send(err);}
+        //if(err) {  rsp.send(err);}
          });
 
 client.connect();
