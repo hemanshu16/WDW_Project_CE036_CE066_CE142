@@ -120,7 +120,8 @@ client.query("insert into user_data values( '" + req.body.rusername +"','"+req.b
   client.end();
 });
   }
-  rsp.end();
+   rsp.sendFile(route_path + "login.html");
+   console.log(route_path + "login.html");
 });
 
 
