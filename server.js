@@ -50,7 +50,7 @@ app.get("/", (req, rsp) => {
 app.get("/:room", (req, res) => {
  if(req.params.room == "temp"){
  res.render("login");
- }
+ } 
  else{
  res.render("room", { roomId : req.params.room });
  }
