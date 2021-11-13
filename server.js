@@ -79,8 +79,8 @@ app.post("/login", (req, rsp) => {
     client.connect();
     let valid_user = false;
     client.query("select * from user_data where username = " + "'" +req.body.username + "' ;", (err, res) => {
-    if (err) {throw err; }
-        console.log(res.rows);
+    if (err) { rsp.send(err); }
+
    if( res.rows[0].password == req.body.password)
    {
          valid_user = true;
@@ -111,16 +111,16 @@ let tempfile = req.files.file;
 let uploadpath = route_path +"\\views\\images\\" + tempfile.name; 
 console.log(tempfile.type);
 tempfile.mv(uploadpath, function(err){
-        if(err) { console.log(err);}
+        if(err) {  rsp.send(err);}
          });
 
 client.connect();
 client.query("insert into user_data values( '" + req.body.rusername +"','"+req.body.email + "','" + req.body.rpassword + "','" +tempfile.name+ "');",(err,res)=>{
   console.log(err);
-  if(err) {   throw err; }
+  if(err) {    rsp.send(err); }
   else{
   client.query("create table " + req.body.rusername + " (link varchar(200), meet_date date, meet_time time);",(err,res)=>{
-  if (err) {throw err; } 
+  if (err) {  } 
   client.end();
 });
   }
