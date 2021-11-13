@@ -123,7 +123,7 @@ client.query("insert into user_data values( '" + req.body.rusername +"','"+req.b
    //rsp.sendFile(route_path + "login.html");
    
 });*/
-rsp.sendFile(route_path + "\views\login.html");
+rsp.send(route_path + "/foxsh/views/login.html");
 });
 console.log(route_path);
 
