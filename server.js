@@ -106,7 +106,7 @@ app.post("/login", (req, rsp) => {
 });
 app.post("/Registration", (req,rsp)=>{
 
-/*let tempfile = req.files.file;
+let tempfile = req.files.file;
 
 let uploadpath = route_path +"\\views\\images\\" + tempfile.name; 
 console.log(tempfile.type);
@@ -124,9 +124,9 @@ client.query("insert into user_data values( '" + req.body.rusername +"','"+req.b
   client.end();
 });
   }
-   //rsp.sendFile(route_path + "login.html");
+  
    
-});*/
+});
 rsp.render('login');
 });
 console.log(route_path);
