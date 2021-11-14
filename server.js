@@ -79,7 +79,7 @@ app.post("/login", (req, rsp) => {
     client.connect();
     let valid_user = false;
     client.query("select * from user_data where username = " + "'" +req.body.username + "' ;", (err, res) => {
-    if (err) { rsp.send(err); }
+    //if (err) { rsp.send(err); }
 
    if( res.rows[0].password == req.body.password)
    {
@@ -92,11 +92,13 @@ app.post("/login", (req, rsp) => {
       status : "true", 
       email : res.rows[0].email,
       image : res.rows[0].image_name,
+      error : err,
     }); 
   }
    else{
     rsp.json({
       status : "false",
+      error : err,
     });
    }
    

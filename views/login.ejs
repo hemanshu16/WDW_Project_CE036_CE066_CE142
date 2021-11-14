@@ -432,17 +432,20 @@
                     body: JSON.stringify(data),
                      });
                let ans = await resp.json();
+               console.log(ans);
                if(ans.status == "false")
                {
                  $("#errorname").text("Please Enter Valid Username And Password");
                   $('.toast').toast('show');
                }
                else{
+               
                 sessionStorage.setItem('username',$("#username").val() );
                 sessionStorage.setItem('email', ans.email);  
                 sessionStorage.setItem('image', ans.image);  
                  window.location = 'profile.html';
-               }    
+               }  
+
          }
          else{
           $("#errorname").text("Please Enter Valid Username And Password");
