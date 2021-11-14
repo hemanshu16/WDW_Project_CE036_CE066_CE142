@@ -72,7 +72,7 @@ io.on("connection", (socket) => {
 });
 
 
-let route_path = process.cwd();
+// let route_path = process.cwd();
 
 app.post("/login", (req, rsp) => {
      
