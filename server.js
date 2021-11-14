@@ -108,11 +108,11 @@ app.post("/Registration", (req,rsp)=>{
 
 let tempfile = req.files.file;
 
-let uploadpath = route_path +"\\views\\images\\" + tempfile.name; 
-console.log(tempfile.type);
-tempfile.mv(uploadpath, function(err){
-        //if(err) {  rsp.send(err);}
-         });
+// let uploadpath = route_path +"\\views\\images\\" + tempfile.name; 
+// console.log(tempfile.type);
+// tempfile.mv(uploadpath, function(err){
+//         //if(err) {  rsp.send(err);}
+//          });
 
 client.connect();
 client.query("insert into user_data values( '" + req.body.rusername +"','"+req.body.email + "','" + req.body.rpassword + "','" +tempfile.name+ "');",(err,res)=>{
@@ -123,12 +123,11 @@ client.query("insert into user_data values( '" + req.body.rusername +"','"+req.b
   if (err) {  } 
   client.end();
 });
-  }
-  
-   
+  } 
 });
-//rsp.render('login');
+ rsp.render('login');
 });
 
-//hello
+
+
 server.listen(process.env.PORT || 3030);
