@@ -79,7 +79,7 @@ app.post("/login", (req, rsp) => {
     client.connect();
     let valid_user = false;
     client.query("select * from user_data where username = " + "'" +req.body.username + "' ;", (err, res) => {
-    //if (err) { rsp.send(err); }
+    if (err) { rsp.send(err); }
 
    if( res.rows[0].password == req.body.password)
    {
@@ -93,6 +93,7 @@ app.post("/login", (req, rsp) => {
       email : res.rows[0].email,
       image : res.rows[0].image_name,
       error : err,
+      url :res.rows[0].url,
     }); 
   }
    else{
@@ -117,18 +118,15 @@ let tempfile = req.files.file;
 //          });
 
 client.connect();
-client.query("insert into user_data values( '" + req.body.rusername +"','"+req.body.email + "','" + req.body.rpassword + "','" +tempfile.name+ "');",(err,res)=>{
+let url  = "https://foxsh-video-conferencing-app.herokuapp.com/" + uuidv4();
+client.query("insert into user_data values( '" + req.body.rusername +"','"+req.body.email + "','" + req.body.rpassword + "','" +tempfile.name+ "' '" + url + "');",(err,res)=>{
   console.log(err);
   if(err) {    rsp.send(err); }
-  else{
-  client.query("create table " + req.body.rusername + " (link varchar(200), meet_date date, meet_time time);",(err,res)=>{
-  if (err) {  } 
-  client.end();
+  client.end(); 
 });
-  } 
+rsp.render('login');
 });
- //rsp.render('login');
-});
+
 
 
 

@@ -43,14 +43,10 @@
             <strong style="font-size: 22px; color:black">Join, collaborate and share Your Idea with The World.</strong>
             <div class="centered">
             </div><br><br>
-            <label style="color:black; text-shadow: 2px 1px orangered;">Enter Your meeting code</label><br><br>
-        <form action="next.php" method="php" id="form1"></form>
-        <div class="input-container">
-            <i class="fa fa-user icon" style="border-radius: 10px;"></i>
-            <input class="input-field" type="text" name="code" placeholder="Meeting Code" name="code">
-         </div>
-         <button type="submit" >Join Meeting</button>
-        </form>
+        
+        
+         <button type="submit" id="submit" >Join Meeting</button>
+        
          <br><h4>OR</h4>
          <!--<form  action="/room" method="POST">
              <input type="text" placeholder=" Enter Your Name" name="index" id="name" hidden>
@@ -70,6 +66,21 @@
           
         </div>
     </section>
+    <script>
+        let join = document.getElementById('submit');
+        join.addEventListener('click',()=>{
+           let url = prompt('Enter Your meeting URL', "look like (https://foxsh-video-conferencing-app.herokuapp...)");
+           url = url.trim();
+           if(url == '')
+           {
+               alert('Please enter valid URL');
+           }
+           else
+           {
+               window.location = url;
+           }
+        });
+    </script>
 </body>
 </html>
  

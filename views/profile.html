@@ -147,7 +147,7 @@
              <br><br>
              <form  action="/room" method="POST" > 
               <input type="text" placeholder=" Enter Your Name" name="index" id="name" hidden>
-          <button type="submit" style="padding:5px 15px; border-radius:15px; background-color:rgba(1, 13, 17, 0.829);font-size:25px; border: 1px solid black; color:white">Create A New Meeting </button>
+          <button type="submit" id="uurl" style="padding:5px 15px; border-radius:15px; background-color:rgba(1, 13, 17, 0.829);font-size:25px; border: 1px solid black; color:white">Create A New Meeting </button>
            </form>
           </span>
           
@@ -237,11 +237,16 @@ window.onload = function(){
              document.getElementById("user").innerHTML = name;
              const email = sessionStorage.getItem("email");
              const image_name = sessionStorage.getItem("image");
+             const url = sessionStorage.getItem("url");
              
              document.getElementById("email").innerHTML = email;
              document.getElementById("image").src = "images/" + image_name;
              document.getElementById("profimage").src = "images/" + image_name;
              
+             let btn = document.getElementById("uurl");
+             btn.addEventListener("click",()=>{
+                  window.location = url;
+             });
 }
       </script>
 </body>
