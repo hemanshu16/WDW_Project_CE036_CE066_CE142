@@ -197,19 +197,21 @@
                 <div class="col-sm-12 my-1">
                   <label  for="image">Your Image</label>
                   <div class="input-group">
+                   
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="bi bi-person"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                       </svg></i></div>
+                   
                     </div>
-                    <label style="margin:5px;" for="image" id="imagelabel">Click here To Select</label>
+                    <label style="margin:5px;" for="image" id="imagelabel">Click Here For Image</label>
                     <input  type="file" class="form-control" name="file" style="visibility:hidden;" max="100" min="10" id="image"  >
                   </div>
              </div>     
                 
           <div class="col-auto my-1" style="text-align: center;padding-top:15px ;" >
             <button  type="button"  class="btn" id="buttonforlogin">Login</button>
-            <button type="submit" class="btn"  >Registration</button>
+            <button type="submit" class="btn" id="rsb" >Registration</button>
           </div>
           
         </div>
@@ -234,7 +236,8 @@
    
     <script>
       $(document).ready(function(){
-        let valid_username = false , valid_password = false;
+        let valid_username = false , valid_password = false, valid_rpassword = false , valid_rusername = false ;
+        let valid_cpassword = false , valid_email = false , vaild_image = false;
           $('#mytoast').toast({
           delay: 20000
           })
@@ -294,10 +297,12 @@
              else{
               $(this).css("border", "2px solid green");
               username = true;
+              valid_rusername = true;
              }
              $("#errorname").text(error) ;
              if(error != "")
-             {  $(this).css("border", "2px solid red");
+             {  valid_rusername = false; 
+               $(this).css("border", "2px solid red");
 
              $('.toast').toast('show');
               
@@ -349,21 +354,23 @@
                  { $('.toast').toast('hide');
                   $(this).css("border", "2px solid green");
                username = false;
+               valid_rpassword = true;
                  }
                  else{
                   $("#confirmpassword").css("border", "2px solid red");
                 error = "Password and Confirm Password is not same";
-                
+                valid_rpassword = false;
                  }
                }
                $('.toast').toast('hide');
               $(this).css("border", "2px solid green");
                username = false;
+               valid_rpassword = true;
              }
              $("#errorname").text(error) ;
              if(error != "")
              {  $(this).css("border", "2px solid red");
-
+               valid_rpassword = false;
              $('.toast').toast('show');
                
               }
@@ -375,12 +382,13 @@
                if($("#rpassword").val() == $(this).val())
                {$('.toast').toast('hide');
                 $(this).css("border", "2px solid green");
+                valid_cpassword = true;
                }
                else{
                 $(this).css("border", "2px solid red");
                 $("#errorname").text("Password and Confirm Password is not same");
                 $('.toast').toast('show');
-                
+                valid_cpassword = false;
                }
          });
          
@@ -392,11 +400,13 @@
              if(format.test($(this).val()))
              { $('.toast').toast('hide');
                $(this).css("border","2px solid green");
+               valid_email = true;
              }
              else{
               $(this).css("border","2px solid red");
               $("#errorname").text("Please Enter Valid Email Address");
                 $('.toast').toast('show');
+                valid_email =  false;
              }
          });
 
@@ -404,7 +414,7 @@
            let image = document.getElementById("image");
           
           $("#imagelabel").text(image.files.item(0).name);
-           
+               vaild_image = true;
          });
          $("#buttonforregistration").click(function(){
             $(".flogin").css("left","-195%");  
@@ -417,7 +427,17 @@
             $(".fregister").css("left","105%");
             $(".loginsection").animate({height:"315px"},"fast"); 
          });
-        
+      $("#rsb").click(function(e){
+           if(vaild_image && valid_cpassword && valid_rpassword && valid_rusername && valid_email)
+           {
+              
+           }
+           else{
+             e.preventDefault();
+             $("#errorname").text("Please Enter Correct Details");
+                $('.toast').toast('show');
+           }
+      });     
    
       $("#loginbutton").click(   async function validate (event){
          
@@ -439,14 +459,13 @@
                   $('.toast').toast('show');
                }
                else{
-               
                 sessionStorage.setItem('username',$("#username").val() );
                 sessionStorage.setItem('email', ans.email);  
                 sessionStorage.setItem('image', ans.image);  
                 sessionStorage.setItem('url', ans.url);  
                  window.location = 'profile.html';
-               }  
-
+                 
+               }    
          }
          else{
           $("#errorname").text("Please Enter Valid Username And Password");
