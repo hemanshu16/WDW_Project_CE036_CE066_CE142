@@ -17,25 +17,25 @@
                     <div class="brand"></div>
                     <div class="hamburger"><div class="bar"></div></div>
                     <ul>
-                        <li><a href="index.html" data-after="home">home</a></li>
+                        <li><a href="#" data-after="home">home</a></li>
                         <li><a href="aboutus.html" data-after="About Us">About Us</a></li>
                         <li><a href="feedback.html" data-after="Feedback">Feedback</a></li>
-                        <li><a href="login.ejs" data-after="Login / Signup">Login / signup</a></li>
+                        <li><a href="http://localhost:3030/temp" data-after="Login / Signup">Login / signup</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <script>
             const hamburger=document.querySelector('.header .nav-bar .nav-list .hamburger');
-       const mobile_menu=document.querySelector('.header .nav-bar .nav-list ul');
-       const header=document.querySelector('.header .container');
-       
-       hamburger.addEventListener('click',()=>{
-           hamburger.classList.toggle('active');
-           mobile_menu.classList.toggle('active');
-       });
-       
+            const mobile_menu=document.querySelector('.header .nav-bar .nav-list ul');
+            const header=document.querySelector('.header .container');
+
+            hamburger.addEventListener('click',()=>{
+                hamburger.classList.toggle('active');
+                mobile_menu.classList.toggle('active');
+            });   
        </script>
+
     </section>
     <section id="second">
         <div class="entercode left">
@@ -43,18 +43,9 @@
             <strong style="font-size: 22px; color:black">Join, collaborate and share Your Idea with The World.</strong>
             <div class="centered">
             </div><br><br>
-        
-        
          <button type="submit" id="submit" >Join Meeting</button>
-        
          <br><h4>OR</h4>
-         <!--<form  action="/room" method="POST">
-             <input type="text" placeholder=" Enter Your Name" name="index" id="name" hidden>
-         <button type="submit">Create New Meeting </button>-->
-         
-         <button><a href="https://foxsh-video-conferencing-app.herokuapp.com/temp" style="color:black" title="You need to login first in order to create a meeting">Create New Meeting </a></button>
-        
-       
+         <button><a href="http://localhost:3030/temp" style="color:black" title="You need to login first in order to create a meeting">Create New Meeting </a></button>
         </div>
         <div class="entercode right" id="right_part" >
         <u><h2 style="text-shadow: 2px 1px aqua;"> WELCOME TO YOUR MEETINGS</h2></u><br><br>
@@ -62,13 +53,13 @@
         <video width="320" muted controls autoplay>
             <source src="img/video4.mp4" type="video/mp4">
             Your browser does not support the video tag.
-          </video>
-          
+        </video>   
         </div>
     </section>
     <script>
         let join = document.getElementById('submit');
-        join.addEventListener('click',()=>{
+
+           join.addEventListener('click',()=>{
            let url = prompt('Enter Your meeting URL', "look like (https://foxsh-video-conferencing-app.herokuapp...)");
            url = url.trim();
            if(url == '')
@@ -79,7 +70,8 @@
            {
                window.location = url;
            }
-        });
+           });
+           
     </script>
 </body>
 </html>

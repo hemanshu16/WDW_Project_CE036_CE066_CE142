@@ -84,17 +84,16 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark" id="navbar" >
-    <div class="container-fluid">
-      
+    <div class="container-fluid"> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link navbar-brand active" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link navbar-brand active" aria-current="page" href="http://localhost:3030">Home</a>
           <a class="nav-link navbar-brand active" href="aboutus.html">About Us</a>
           <a class="nav-link navbar-brand active" href="feedback.html">Feedback</a>
-          <a class="nav-link navbar-brand active" href="#" id="login">Login / Signup</a>
+          <a class="nav-link navbar-brand active" href="http://localhost:3030/temp" id="login">Login / Signup</a>
         </div>
       </div>
     </div>
@@ -103,7 +102,6 @@
     <div class="loginsection">   
     <div class="flogin">
         <h2 style="text-align: center;">Login</h2>
-    
         <div class="form-row align-items-center">
           <div class="col-sm-12 my-1">
             <label  for="username">Username</label>
@@ -133,12 +131,11 @@
             <button  id="loginbutton" class="btn">Login</button> 
             <button type="button" class="btn" id="buttonforregistration">Registration</button>
           </div>
-        </div>
-           
+        </div>       
       </div>
       <div class="fregister">
         <h2 style="text-align: center;">Registration</h2>
-    <form method="POST" action="https://foxsh-video-conferencing-app.herokuapp.com/Registration" enctype="multipart/form-data">
+    <form method="POST" action="http://localhost:3030/Registration" enctype="multipart/form-data">
         <div class="form-row align-items-center gy-">
           <div class="col-sm-12 my-1">
             <label  for="username">Username</label>
@@ -221,19 +218,12 @@
     </section>
     <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
       <div class="toast" id="mytoast" style="position: absolute; margin:auto; top:0; width:fit-content; text-align: center; z-index: 10;" autohide: false>
-        <div class="toast-header" style="text-align: left;">
-          
+        <div class="toast-header" style="text-align: left;">    
           <div id="errorname" style="margin-right: 5px;"></div> 
-         <!-- <button type="button" id="close" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" style="background-color: white;">
-            <span aria-hidden="true" style="background-color:white;" >&times;</span>
-          </button>-->
         </div>
-       
       </div>
     </div>
-   
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script>
       $(document).ready(function(){
         let valid_username = false , valid_password = false, valid_rpassword = false , valid_rusername = false ;
@@ -353,13 +343,13 @@
                  if($("#confirmpassword").val() == password)
                  { $('.toast').toast('hide');
                   $(this).css("border", "2px solid green");
-               username = false;
-               valid_rpassword = true;
+                    username = false;
+                    valid_rpassword = true;
                  }
                  else{
                   $("#confirmpassword").css("border", "2px solid red");
-                error = "Password and Confirm Password is not same";
-                valid_rpassword = false;
+                    error = "Password and Confirm Password is not same";
+                    valid_rpassword = false;
                  }
                }
                $('.toast').toast('hide');
@@ -444,7 +434,7 @@
         if(valid_username && valid_password)
          {
           let data = { username : $("#username").val() , password : $("#password").val()};
-           let resp = await fetch('https://foxsh-video-conferencing-app.herokuapp.com/login', {
+           let resp = await fetch('http://localhost:3030/login', {
                     method: 'POST', 
                     headers: {
                       'Content-Type': 'application/json',
@@ -463,7 +453,7 @@
                 sessionStorage.setItem('email', ans.email);  
                 sessionStorage.setItem('image', ans.image);  
                 sessionStorage.setItem('url', ans.url);  
-                 window.location = 'profile.html';
+                window.location = 'profile.html';
                  
                }    
          }
